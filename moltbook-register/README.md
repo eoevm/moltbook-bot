@@ -1,31 +1,31 @@
 # 🦞 Moltbook Auto Register
 
-Web app untuk auto-register akun AI agent di [Moltbook](https://www.moltbook.com) — the social network for AI agents.
+A web application to auto-register AI agent accounts on [Moltbook](https://www.moltbook.com) — the social network for AI agents.
 
-Dibangun dengan **Next.js 16**, **TypeScript**, dan **Tailwind CSS**.
+Built with **Next.js 16**, **TypeScript**, and **Tailwind CSS**.
 
 ---
 
-## ✨ Fitur
+## ✨ Features
 
 ### Single Register
-- Form input **Agent Name** dan **Description**
-- Memanggil `POST https://www.moltbook.com/api/v1/agents/register`
-- Menampilkan hasil: `api_key`, `claim_url`, `verification_code`
-- Tombol **Copy** untuk setiap field
-- Tombol **Download Credentials (JSON)** untuk menyimpan ke file
+- Input form for **Agent Name** and **Description**
+- Calls `POST https://www.moltbook.com/api/v1/agents/register`
+- Displays result: `api_key`, `claim_url`, `verification_code`
+- **Copy** button for each field
+- **Download Credentials (JSON)** button to save locally
 
 ### ⚡ Bulk Register
-- Input jumlah akun (1–20) dan prefix nama
-- Nama agent di-generate otomatis: `{Prefix}{N}_{RandomSuffix}`
-- Progress bar real-time
-- Delay 1.2 detik antar request (menghindari rate limit)
-- Tombol **Stop** untuk menghentikan proses kapan saja
-- Tombol **Export All Credentials (JSON)** setelah selesai
+- Input count (1–20) and name prefix
+- Agent names are auto-generated: `{Prefix}{N}_{RandomSuffix}`
+- Real-time progress bar
+- 1.2-second delay between requests (to respect rate limits)
+- **Stop** button to cancel at any time
+- **Export All Credentials (JSON)** button after completion
 
 ---
 
-## 🚀 Cara Menjalankan
+## 🚀 Getting Started
 
 ### Development
 
@@ -35,7 +35,7 @@ npm install
 npm run dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Production Build
 
@@ -46,14 +46,14 @@ npm start
 
 ---
 
-## 📁 Struktur Project
+## 📁 Project Structure
 
 ```
 moltbook-register/
 ├── app/
 │   ├── api/
 │   │   └── register/
-│   │       └── route.ts    ← API route proxy ke moltbook.com
+│   │       └── route.ts    ← API route proxy to moltbook.com
 │   ├── types.ts             ← TypeScript types
 │   ├── page.tsx             ← Main UI (React + Tailwind)
 │   ├── layout.tsx           ← Root layout
@@ -70,7 +70,7 @@ moltbook-register/
 
 ### `POST /api/register`
 
-Proxy ke `https://www.moltbook.com/api/v1/agents/register`.
+Proxies to `https://www.moltbook.com/api/v1/agents/register`.
 
 **Request body:**
 ```json
@@ -94,25 +94,25 @@ Proxy ke `https://www.moltbook.com/api/v1/agents/register`.
 
 ---
 
-## 📋 Alur Registrasi (sesuai skill.md)
+## 📋 Registration Flow (per skill.md)
 
-1. **Register** — Isi nama dan deskripsi agent, klik Register
-2. **Simpan API Key** — Salin dan simpan `api_key` dengan aman (hanya tampil sekali!)
-3. **Claim** — Kirim `claim_url` ke human owner
-4. **Verifikasi** — Human owner verifikasi via:
-   - Email verification (untuk login ke dashboard)
-   - Tweet verification (membuktikan kepemilikan akun X)
-5. **Aktif** — Agent siap digunakan di Moltbook!
+1. **Register** — Fill in agent name and description, click Register
+2. **Save API Key** — Copy and store your `api_key` safely (shown only once!)
+3. **Claim** — Send the `claim_url` to your human owner
+4. **Verify** — Human owner completes two-step verification:
+   - Email verification (to access the owner dashboard)
+   - Tweet verification (proves ownership of their X account)
+5. **Active** — Your agent is now live on Moltbook!
 
-> ⚠️ **Penting:** Selalu gunakan `https://www.moltbook.com` (dengan `www`). Tanpa `www` akan redirect dan menghapus Authorization header.
+> ⚠️ **Important:** Always use `https://www.moltbook.com` (with `www`). Without `www`, redirects will strip your Authorization header.
 
 ---
 
-## 🔒 Keamanan
+## 🔒 Security
 
-- API key **TIDAK PERNAH** dikirim ke domain selain `www.moltbook.com`
-- API route Next.js (`/api/register`) bertindak sebagai proxy untuk menghindari CORS
-- Credentials hanya disimpan di browser (tidak ada server-side storage)
+- API keys are **NEVER** sent to any domain other than `www.moltbook.com`
+- The Next.js API route (`/api/register`) acts as a proxy to avoid CORS issues
+- Credentials are only stored in the browser (no server-side storage)
 
 ---
 
@@ -139,7 +139,7 @@ CMD ["npm", "start"]
 
 ---
 
-## 📚 Referensi
+## 📚 References
 
 - [Moltbook API Docs (skill.md)](https://www.moltbook.com/skill.md)
 - [Moltbook Rules](https://www.moltbook.com/rules.md)

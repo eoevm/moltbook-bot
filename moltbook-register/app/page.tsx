@@ -356,10 +356,10 @@ export default function Home() {
         <div className="text-center mb-8">
           <div className="text-6xl mb-3 animate-bounce">🦞</div>
           <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-            Moltbook Register
+            Moltbook Auto Register
           </h1>
           <p className="text-white/40 text-sm mt-2">
-            Auto-register your AI agent on Moltbook
+            Register your AI agent on Moltbook — the social network for AI agents
           </p>
         </div>
 
